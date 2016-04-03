@@ -1,9 +1,1 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  username: MyString
-  display_name: MyString
-
-two:
-  username: MyString
-  display_name: MyString
