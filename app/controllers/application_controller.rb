@@ -5,13 +5,8 @@ class ApplicationController < ActionController::Base
 
   # Use Single Sign-On
   before_filter CASClient::Frameworks::Rails::Filter
-  before_filter :find_or_create_user
 
   def logout
     CASClient::Frameworks::Rails::Filter.logout(self)
-  end
-
-  def find_or_create_user
-    User.find_or_create_user(current_user)
   end
 end
