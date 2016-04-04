@@ -1,24 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="small-12 medium-10 large-8">
+    <p>
+      <strong>Name:</strong>
+      <%= @side.name %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @side.name %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @side.description %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @side.description %>
-</p>
+    <p>
+      <strong>Spicy:</strong>
+      <%= @side.spicy %>
+    </p>
 
-<p>
-  <strong>Spicy:</strong>
-  <%= @side.spicy %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @side.price %>
-</p>
-
-<%= link_to 'Edit', edit_side_path(@side) %> |
-<%= link_to 'Back', sides_path %>
+    <p>
+      <strong>Price:</strong>
+      <%= @side.price %>
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 medium-10 large-8">
+    <%= link_to 'Edit', edit_side_path(@side), class: 'button radius success' %>
+    <%= link_to 'Back', sides_path, class: 'button radius info' %>
+  </div>
+</div>
