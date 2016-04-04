@@ -15,7 +15,7 @@
       <% if @order.order_price.nil? %>
         -
       <% else %>
-        £<%= number_with_precision(order.order_price, :precision => 2) %>
+        £<%= number_with_precision(@order.order_price, :precision => 2) %>
       <% end %>
     </p>
 
