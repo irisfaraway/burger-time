@@ -6,7 +6,7 @@
 
     <p>
       <strong>Order date:</strong>
-      <%= @order.order_date %>
+      <%= @order.order_date.to_formatted_s(:ddmy) %>
     </p>
 
     <p>

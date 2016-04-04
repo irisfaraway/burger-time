@@ -20,7 +20,7 @@
         <% @orders.each do |order| %>
           <tr>
             <td><%= order.eater %></td>
-            <td><%= order.order_date %></td>
+            <td><%= order.order_date.to_formatted_s(:ddmy) %></td>
             <td>£<%= number_with_precision(order.order_price, :precision => 2) %></td>
             <td><%= order.paid %></td>
             <td><%= link_to 'Show', order, class: 'button radius tiny info' %></td>
