@@ -21,7 +21,12 @@
           <tr>
             <td><%= order.eater %></td>
             <td><%= order.order_date.to_formatted_s(:ddmy) %></td>
-            <td>£<%= number_with_precision(order.order_price, :precision => 2) %></td>
+            <td><% if order.order_price.nil? %>
+                -
+              <% else %>
+                £<%= number_with_precision(order.order_price, :precision => 2) %>
+              <% end %>
+            </td>
             <td><%= order.paid %></td>
             <td><%= link_to 'Show', order, class: 'button radius tiny info' %></td>
             <td><%= link_to 'Edit', edit_order_path(order), class: 'button radius tiny success' %></td>
