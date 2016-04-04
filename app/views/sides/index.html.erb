@@ -22,11 +22,7 @@
             <td><%= side.name %></td>
             <td><%= side.description %></td>
             <td><%= side.spicy %></td>
-            <td><% if side.price.nil? %>
-                -
-              <% else %>
-                £<%= number_with_precision(side.price, :precision => 2) %>
-              <% end %></td>
+            <td>£<%= number_with_precision(side.price, :precision => 2) %></td>
             <td><%= link_to 'Show', side, class: 'button radius tiny info' %></td>
             <td><%= link_to 'Edit', edit_side_path(side), class: 'button radius tiny success' %></td>
             <td><%= link_to 'Destroy', side, method: :delete, class: 'button radius tiny alert', data: { confirm: 'Are you sure?' } %></td>
