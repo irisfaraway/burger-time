@@ -10,6 +10,7 @@
         <tr>
           <th>Eater</th>
           <th>Order date</th>
+          <th>Sides</th>
           <th>Order price</th>
           <th>Paid</th>
           <th colspan="3"></th>
@@ -21,6 +22,17 @@
           <tr>
             <td><%= order.eater %></td>
             <td><%= order.order_date.to_formatted_s(:ddmy) %></td>
+            <td>
+              <% unless order.sides.empty? %>
+                <ul>
+                  <% order.sides.each do |side| %>
+                    <li><%= side.name %></li>
+                  <% end %>
+                </ul>
+              <% else %>
+                No sides
+              <% end %>
+            </td>
             <td><% if order.order_price.nil? %>
                 -
               <% else %>

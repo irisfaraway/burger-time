@@ -11,6 +11,19 @@
     </p>
 
     <p>
+      <strong>Sides:</strong>
+      <% unless @order.sides.empty? %>
+        <ul>
+          <% @order.sides.each do |side| %>
+            <li><%= side.name %> – £<%= number_with_precision(side.price, :precision => 2) %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        No sides
+      <% end %>
+    </p>
+
+    <p>
       <strong>Order price:</strong>
       <% if @order.order_price.nil? %>
         -
