@@ -19,9 +19,9 @@
           <tr>
             <td><%= user.username %></td>
             <td><%= user.display_name %></td>
-            <td><%= link_to 'Show', user %></td>
-            <td><%= link_to 'Edit', edit_user_path(user) %></td>
-            <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Show', user, class: 'button radius tiny info' %></td>
+            <td><%= link_to 'Edit', edit_user_path(user), class: 'button radius tiny success' %></td>
+            <td><%= link_to 'Destroy', user, method: :delete, class: 'button radius tiny alert', data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
@@ -30,6 +30,6 @@
 </div>
 <div class="row">
   <div class="small-12 columns">
-    <%= link_to 'New User', new_user_path %>
+    <%= link_to 'New User', new_user_path, class: 'button radius success' %>
   </div>
 </div>
