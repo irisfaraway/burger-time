@@ -1,6 +1,7 @@
 <%= form_for(@order) do |f| %>
   <% if @order.errors.any? %>
-    <div id="error_explanation">
+  <div class="row">
+    <div id="error_explanation" class="small-12 medium-10 large-8">
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
       <ul>
@@ -9,25 +10,30 @@
       <% end %>
       </ul>
     </div>
+  </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :eater %><br>
-    <%= f.text_field :eater %>
+<div class="row">
+  <div class="small-12 medium-10 large-8">
+    <div class="field">
+      <%= f.label :eater %><br>
+      <%= f.text_field :eater %>
+    </div>
+    <div class="field">
+      <%= f.label :order_date %><br>
+      <%= f.date_select :order_date %>
+    </div>
+    <div class="field">
+      <%= f.label :order_price %><br>
+      <%= f.text_field :order_price %>
+    </div>
+    <div class="field">
+      <%= f.label :paid %><br>
+      <%= f.check_box :paid %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :order_date %><br>
-    <%= f.date_select :order_date %>
-  </div>
-  <div class="field">
-    <%= f.label :order_price %><br>
-    <%= f.text_field :order_price %>
-  </div>
-  <div class="field">
-    <%= f.label :paid %><br>
-    <%= f.check_box :paid %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
 <% end %>
