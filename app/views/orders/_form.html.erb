@@ -24,6 +24,10 @@
       <%= f.date_select :order_date %>
     </div>
     <div class="field">
+      <%= f.label :filling_ids, 'Extra fillings' %>
+      <%= f.collection_check_boxes(:filling_ids, Filling.all, :id, :name) %>
+    </div>
+    <div class="field">
       <%= f.label :side_ids, 'Sides' %>
       <%= f.collection_check_boxes(:side_ids, Side.all, :id, :name) %>
     </div>

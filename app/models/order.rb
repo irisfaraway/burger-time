@@ -1,5 +1,6 @@
 class Order < ActiveRecord::Base
   has_and_belongs_to_many :sides
+  has_and_belongs_to_many :fillings
 
   # Requires an eater and a date
   validates :eater, :order_date, presence: true

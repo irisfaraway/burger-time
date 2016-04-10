@@ -11,6 +11,19 @@
     </p>
 
     <p>
+      <strong>Extra fillings:</strong>
+      <% unless @order.fillings.empty? %>
+        <ul>
+          <% @order.fillings.each do |filling| %>
+            <li><%= filling.name %> – £<%= number_with_precision(filling.price, :precision => 2) %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        No extra fillings
+      <% end %>
+    </p>
+
+    <p>
       <strong>Sides:</strong>
       <% unless @order.sides.empty? %>
         <ul>

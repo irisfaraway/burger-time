@@ -10,6 +10,7 @@
         <tr>
           <th>Eater</th>
           <th>Order date</th>
+          <th>Extra fillings</th>
           <th>Sides</th>
           <th>Order price</th>
           <th>Paid</th>
@@ -22,6 +23,17 @@
           <tr>
             <td><%= order.eater %></td>
             <td><%= order.order_date.to_formatted_s(:ddmy) %></td>
+            <td>
+              <% unless order.fillings.empty? %>
+                <ul>
+                  <% order.fillings.each do |filling| %>
+                    <li><%= filling.name %></li>
+                  <% end %>
+                </ul>
+              <% else %>
+                No extra fillings
+              <% end %>
+            </td>
             <td>
               <% unless order.sides.empty? %>
                 <ul>
