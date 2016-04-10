@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Fillings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Spicy</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fillings.each do |filling| %>
+      <tr>
+        <td><%= filling.name %></td>
+        <td><%= filling.spicy %></td>
+        <td><%= filling.price %></td>
+        <td><%= link_to 'Show', filling %></td>
+        <td><%= link_to 'Edit', edit_filling_path(filling) %></td>
+        <td><%= link_to 'Destroy', filling, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Filling', new_filling_path %>

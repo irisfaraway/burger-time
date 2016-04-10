@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @filling.name %>
+</p>
+
+<p>
+  <strong>Spicy:</strong>
+  <%= @filling.spicy %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @filling.price %>
+</p>
+
+<%= link_to 'Edit', edit_filling_path(@filling) %> |
+<%= link_to 'Back', fillings_path %>
