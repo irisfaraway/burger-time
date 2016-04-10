@@ -1,31 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="small-12 columns">
+    <h1>Listing Extra Fillings</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 columns">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Spicy</th>
+          <th>Price</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<h1>Listing Fillings</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Spicy</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @fillings.each do |filling| %>
-      <tr>
-        <td><%= filling.name %></td>
-        <td><%= filling.spicy %></td>
-        <td><%= filling.price %></td>
-        <td><%= link_to 'Show', filling %></td>
-        <td><%= link_to 'Edit', edit_filling_path(filling) %></td>
-        <td><%= link_to 'Destroy', filling, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Filling', new_filling_path %>
+      <tbody>
+        <% @fillings.each do |filling| %>
+          <tr>
+            <td><%= filling.name %></td>
+            <td><%= filling.spicy %></td>
+            <td>£<%= number_with_precision(filling.price, :precision => 2) %></td>
+            <td><%= link_to 'Show', filling, class: 'button radius tiny info' %></td>
+            <td><%= link_to 'Edit', edit_filling_path(filling), class: 'button radius tiny success' %></td>
+            <td><%= link_to 'Destroy', filling, method: :delete, class: 'button radius tiny alert', data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 columns">
+    <%= link_to 'New Extra Filling', new_filling_path, class: 'button radius success' %>
+  </div>
+</div>
