@@ -1,0 +1,81 @@
+---
+- name: Schwartz Fries
+  description: ''
+  spicy: false
+  price: 2.25
+- name: Chunky Potato Wedges
+  description: '8 pieces'
+  spicy: false
+  price: 2.30
+- name: Chicken Nuggets
+  description: '7 pieces - crispy coated whole breast fillet chunks'
+  spicy: false
+  price: 3.85
+- name: "Chicken Fillets'n'Dip"
+  description: '3 pieces - crispy coated breast fillets and any dip'
+  spicy: false
+  price: 3.95
+- name: Vege Spring Rolls
+  description: '3 pieces - vege filling, in oriental style pastry'
+  spicy: false
+  price: 3.65
+- name: Onion Rings
+  description: '8 pieces - golden crispy coated onion rings'
+  spicy: false
+  price: 2.95
+- name: Thick Vanilla Milkshake - regular
+  description: ''
+  spicy: false
+  price: 1.95
+- name: Thick Vanilla Milkshake - large
+  description: ''
+  spicy: false
+  price: 2.35
+- name: Thick Banana Milkshake - regular
+  description: ''
+  spicy: false
+  price: 1.95
+- name: Thick Banana Milkshake - large
+  description: ''
+  spicy: false
+  price: 2.35
+- name: Thick Strawberry Milkshake - regular
+  description: ''
+  spicy: false
+  price: 1.95
+- name: Thick Strawberry Milkshake - large
+  description: ''
+  spicy: false
+  price: 2.35
+- name: Thick Chocolate Milkshake - regular
+  description: ''
+  spicy: false
+  price: 1.95
+- name: Thick Chocolate Milkshake - large
+  description: ''
+  spicy: false
+  price: 2.35
+- name: Coke
+  description: ''
+  spicy: false
+  price: 0.95
+- name: Diet Coke
+  description: ''
+  spicy: false
+  price: 0.95
+- name: Sprite
+  description: ''
+  spicy: false
+  price: 0.95
+- name: Orange Tango
+  description: ''
+  spicy: false
+  price: 0.95
+- name: Mineral Water
+  description: ''
+  spicy: false
+  price: 0.95
+- name: Orange Juice
+  description: ''
+  spicy: false
+  price: 0.95

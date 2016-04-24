@@ -1,10 +1,10 @@
 class Side < ActiveRecord::Base
   has_and_belongs_to_many :orders
 
-  # Name is required, must be unique and under 30 characters
+  # Name is required, must be unique and under 40 characters
   validates :name, presence: true,
                    uniqueness: true,
-                   length: { maximum: 30 }
+                   length: { maximum: 40 }
 
   # Description must be under 100 characters
   validates :description, length: { maximum: 100 }

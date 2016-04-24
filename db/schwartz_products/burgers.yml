@@ -1,0 +1,131 @@
+---
+- name: Hamburger
+  description: 'Relish, red onion, lettuce'
+  spicy: false
+  price_single: 5.50
+  price_double: 6.95
+- name: Roadhouse Chilliburger
+  description: "Original 'Hot' Roadhouse Chilli Relish, mature cheddar, red onion, lettuce"
+  spicy: true
+  price_single: 5.95
+  price_double: 7.40
+- name: Cheeseburger
+  description: 'Mature cheddar, relish, red onion, lettuce'
+  spicy: false
+  price_single: 5.95
+  price_double: 7.40
+- name: Bluecheeseburger
+  description: 'Danish blue cheese and mayo, red onion, tomato, lettuce'
+  spicy: false
+  price_single: 5.95
+  price_double: 7.40
+- name: Garlic Mayo Cheeseburger
+  description: 'Mature cheddar, crushed garlic, mayo, red onion, tomato, lettuce'
+  spicy: false
+  price_single: 6.25
+  price_double: 7.70
+- name: BBQ Bacon Cheeseburger
+  description: 'Bacon, mature cheddar, spicy BBQ sauce, red onion, lettuce'
+  spicy: false
+  price_single: 6.25
+  price_double: 7.70
+- name: Big Al
+  description: 'Bacon, mature cheddar, red onion, tomato, mixed salad leaves, honey mustard mayo'
+  spicy: false
+  price_single: 6.25
+  price_double: 7.70
+- name: Jalapeño Burger
+  description: "'Hot' jalapeño peppers, light cream cheese, red onion, lettuce"
+  spicy: false
+  price_single: 6.25
+  price_double: 7.70
+- name: Chorizo Burger
+  description: 'Grilled chorizo slices, mature cheddar, mayo, red onion, gherkin slices, lettuce'
+  spicy: false
+  price_single: 6.25
+  price_double: 7.70
+- name: Vegeburger
+  description: 'Relish, red onion, lettuce'
+  spicy: false
+  price_single: 5.25
+  price_double: 6.45
+- name: Vege Roadhouse Chilliburger
+  description: "Original 'Hot' Roadhouse Chilli Relish, mature cheddar, red onion, lettuce"
+  spicy: true
+  price_single: 5.50
+  price_double: 6.70
+- name: Vege Cheeseburger
+  description: 'Mature cheddar, relish, red onion, lettuce'
+  spicy: false
+  price_single: 5.50
+  price_double: 6.70
+- name: Vege Bluecheeseburger
+  description: 'Danish blue cheese, mayo, red onion, tomato, lettuce'
+  spicy: false
+  price_single: 5.50
+  price_double: 6.70
+- name: Vege Garlic Mayo Cheeseburger
+  description: 'Mature cheddar, crushed garlic, mayo, red onion, tomato, lettuce'
+  spicy: false
+  price_single: 5.80
+  price_double: 7.00
+- name: Vege Big Al
+  description: 'Mature cheddar, red onion, tomato, mixed salad leaves, honey mustard mayo'
+  spicy: false
+  price_single: 5.80
+  price_double: 7.00
+- name: Vege Jalapeño Burger
+  description: "'Hot' jalapeño peppers, light cream cheese, red onion, lettuce"
+  spicy: false
+  price_single: 5.80
+  price_double: 7.00
+- name: 'Vege Beanburger & Cheese'
+  description: 'Crumbed bean & vege filling, mature cheddar, relish, red onion, lettuce'
+  spicy: false
+  price_single: 5.25
+  price_double: 6.45
+- name: Chickless Vege Special
+  description: 'Chickless vegeburger, vege streaky rasher, mature cheddar, mayo, lettuce'
+  spicy: false
+  price_single: 5.50
+  price_double: 6.70
+- name: Hawaiian Chickless Vege Special
+  description: 'Chickless vegeburger, vege streaky rasher, mature cheddar, pineapple, sweet and sour sauce, mayo, red onion, lettuce'
+  spicy: false
+  price_single: 5.70
+  price_double: 6.90
+- name: Chicken Special
+  description: 'Golden coated chicken breast, mature cheddar, mayo, lettuce'
+  spicy: false
+  price_single: 5.60
+  price_double: 6.80
+- name: 'Chicken Special with Bacon'
+  description: 'Golden coated chicken breast, bacon, mature cheddar, mayo, lettuce'
+  spicy: false
+  price_single: 5.80
+  price_double: 7.00
+- name: "'Hot' Thai Chicken Grill"
+  description: "Marinated chargrilled chicken steak, mature cheddar, 'hot' sweet Thai chili, red onion, lettuce"
+  spicy: false
+  price_single: 5.25
+  price_double: 6.45
+- name: "'Hot' Thai Chicken Grill with Bacon"
+  description: "Marinated chargrilled chicken steak, bacon, mature cheddar, 'hot' sweet Thai chili, red onion, lettuce"
+  spicy: false
+  price_single: 5.45
+  price_double: 6.70
+- name: Jalapeño Chicken
+  description: "'Hot' jalapeño peppers, light cream cheese, red onion, lettuce"
+  spicy: false
+  price_single: 5.80
+  price_double: 7.00
+- name: Hawaiian Chicken
+  description: 'Golden coated chicken breast, bacon, mature cheddar, pineapple, red onion, mayo, sweet & sour sauce, lettuce'
+  spicy: false
+  price_single: 5.80
+  price_double: 7.00
+- name: Chorizo Chicken
+  description: 'Golden coated chicken breast, grilled chorizo slices, mature cheddar, mayo, red onion, gherkin slices, lettuce'
+  spicy: false
+  price_single: 5.80
+  price_double: 7.00
