@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Dir[File.join(Rails.root, 'db', 'schwartz_products', 'fillings.yml')].each do |seed_file|
+  config = YAML::load_file(seed_file)
+  Filling.create!(config)
+end

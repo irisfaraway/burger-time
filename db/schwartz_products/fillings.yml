@@ -1,0 +1,55 @@
+---
+- name: Grilled Chorizo Slices
+  spicy: false
+  price: 0.50
+- name: Light Cream Cheese
+  spicy: false
+  price: 0.50
+- name: "'Hot' Jalapeño Peppers"
+  spicy: false
+  price: 0.50
+- name: Mature Cheddar Slice
+  spicy: false
+  price: 0.50
+- name: "Smoked 'Black Peppered' Bacon"
+  spicy: false
+  price: 0.50
+- name: Vege Streaky Rasher
+  spicy: false
+  price: 0.50
+- name: Pineapple Slices
+  spicy: false
+  price: 0.50
+- name: Gherkin Slices
+  spicy: false
+  price: 0.50
+- name: Plain Mayo
+  spicy: false
+  price: 0.50
+- name: Garlic Mayo
+  spicy: false
+  price: 0.50
+- name: Honey Mustard Mayo
+  spicy: false
+  price: 0.50
+- name: Bluecheese Mayo
+  spicy: false
+  price: 0.50
+- name: BBQ Sauce
+  spicy: false
+  price: 0.50
+- name: "Original 'Hot' Roadhouse Chilli Relish"
+  spicy: true
+  price: 0.50
+- name: "'Hot' Sweet Thai Chilli"
+  spicy: false
+  price: 0.50
+- name: Heinz Ketchup
+  spicy: false
+  price: 0.50
+- name: Bicks Relish
+  spicy: false
+  price: 0.50
+- name: "Smoked 'Hot' Chilli & Garlic"
+  spicy: true
+  price: 0.50
