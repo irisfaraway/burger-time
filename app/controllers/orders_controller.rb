@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-  before_action :get_total_price, only: [:create, :update]
 
   # GET /orders
   # GET /orders.json
@@ -26,6 +25,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
+    get_total_price
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
@@ -40,6 +40,7 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update
+    get_total_price
     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
@@ -76,7 +77,7 @@ class OrdersController < ApplicationController
       @order.sides.each do |side|
         total_price += side.price
       end
-      flash[:alert] = total_price
+      @order.order_price = total_price
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -85,7 +86,6 @@ class OrdersController < ApplicationController
                                     :order_date,
                                     {:filling_ids => []},
                                     {:side_ids => []},
-                                    :order_price,
                                     :paid)
     end
 end
