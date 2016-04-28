@@ -1,4 +1,5 @@
 class Order < ActiveRecord::Base
+  has_one :burger
   has_and_belongs_to_many :sides
   has_and_belongs_to_many :fillings
 
