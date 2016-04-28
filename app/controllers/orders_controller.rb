@@ -25,7 +25,6 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-    get_total_price
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
@@ -40,7 +39,6 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update
-    get_total_price
     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
@@ -66,18 +64,6 @@ class OrdersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
-    end
-
-    # Add prices of the order's individual components for the total
-    def get_total_price
-      total_price = 0
-      @order.fillings.each do |filling|
-        total_price += filling.price
-      end
-      @order.sides.each do |side|
-        total_price += side.price
-      end
-      @order.order_price = total_price
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
