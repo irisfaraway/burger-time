@@ -32,10 +32,6 @@
       <%= f.collection_check_boxes(:side_ids, Side.all, :id, :name) %>
     </div>
     <div class="field">
-      <%= f.label :order_price %><br>
-      <%= f.text_field :order_price, :value => (number_with_precision(f.object.order_price, :precision => 2)) %>
-    </div>
-    <div class="field">
       <%= f.label :paid %><br>
       <%= f.check_box :paid %>
     </div>
