@@ -24,8 +24,8 @@
       <%= f.date_select :order_date %>
     </div>
     <div class="field">
-      <%= f.label :burger_id, 'Burgers' %>
-      <%= f.collection_radio_buttons(:burger_id, Burger.all, :id, :name) %>
+      <%= f.label :burger_ids, 'Burgers' %>
+      <%= f.collection_select(:burger_ids, Burger.all, :id, :name, {include_blank: 'Pick a burger'}) %>
     </div>
     <div class="field">
       <%= f.label :filling_ids, 'Extra fillings' %>
