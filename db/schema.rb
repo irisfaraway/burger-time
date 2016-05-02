@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502143758) do
+ActiveRecord::Schema.define(version: 20160502214614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,13 @@ ActiveRecord::Schema.define(version: 20160502143758) do
 
   add_index "dips_orders", ["dip_id", "order_id"], name: "index_dips_orders_on_dip_id_and_order_id", using: :btree
   add_index "dips_orders", ["order_id", "dip_id"], name: "index_dips_orders_on_order_id_and_dip_id", using: :btree
+
+  create_table "drinks", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "fillings", force: :cascade do |t|
     t.string   "name"
