@@ -1,1 +1,1 @@
-Date::DATE_FORMATS[:ddmy] = '%A %e %B %Y'
+Date::DATE_FORMATS[:ddmy] = '%a %e %b %Y'

@@ -1,17 +1,16 @@
 <div class="row">
-  <div class="small-12 columns">
+  <div class="small-12">
     <h1>Listing Orders</h1>
   </div>
 </div>
 <div class="row">
-  <div class="small-12 columns">
+  <div class="small-12">
     <table>
       <thead>
         <tr>
           <th>Eater</th>
-          <th>Order date</th>
           <th>Burger</th>
-          <th>Sides &amp; Dips</th>
+          <th>Extras</th>
           <th>Order price</th>
           <th>Paid</th>
           <th colspan="3"></th>
@@ -22,11 +21,10 @@
         <% @orders.each do |order| %>
           <tr>
             <td><%= order.eater %></td>
-            <td><%= order.order_date.to_formatted_s(:ddmy) %></td>
             <td>
               <% unless order.burgers.empty? %>
                   <% order.burgers.each do |burger| %>
-                    <%= burger.name %> – <%= order.size %>
+                    <%= order.size.capitalize %> <%= burger.name %>
                   <% end %>
               <% else %>
                 No burgers
@@ -52,8 +50,6 @@
                     <li><%= dip.name %></li>
                   <% end %>
                 </ul>
-              <% else %>
-                No sides or dips
               <% end %>
             </td>
             <td><% if order.order_price.nil? %>
@@ -63,9 +59,9 @@
               <% end %>
             </td>
             <td><%= order.paid %></td>
-            <td><%= link_to 'Show', order, class: 'button radius tiny info' %></td>
+            <td><%= link_to 'Details', order, class: 'button radius tiny info' %></td>
             <td><%= link_to 'Edit', edit_order_path(order), class: 'button radius tiny success' %></td>
-            <td><%= link_to 'Destroy', order, method: :delete, class: 'button radius tiny alert', data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Delete', order, method: :delete, class: 'button radius tiny alert', data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
@@ -73,7 +69,7 @@
     </div>
 </div>
 <div class="row">
-  <div class="small-12 columns">
+  <div class="small-12">
     <%= link_to 'New Order', new_order_path, class: 'button radius success' %>
   </div>
 </div>
