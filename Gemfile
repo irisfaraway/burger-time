@@ -28,6 +28,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Authenticate using University of Bath single sign-on
 gem 'rubycas-client', git: 'https://github.com/rubycas/rubycas-client.git'
 
+# Better forms
+gem 'simple_form'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

@@ -1,3 +1,8 @@
 // Place all the styles related to the Burgers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+select.day, select.month, select.year {
+  width: auto;
+  padding: 0 1.5em 0 0.5em;
+}
