@@ -31,10 +31,13 @@
               <% else %>
                 No burgers
               <% end %>
-              <% unless order.fillings.empty? %>
+              <% unless order.fillings.empty? && order.comment.blank? %>
                 <ul>
                   <% order.fillings.each do |filling| %>
-                    <li><%= filling.name %></li>
+                    <li>with <%= filling.name %></li>
+                  <% end %>
+                  <% unless order.comment.blank? %>
+                    <li><%= order.comment %></li>
                   <% end %>
                 </ul>
               <% end %>

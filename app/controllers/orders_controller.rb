@@ -72,6 +72,7 @@ class OrdersController < ApplicationController
                                     :order_date,
                                     :burger_ids,
                                     :size,
+                                    :comment,
                                     {:filling_ids => []},
                                     {:side_ids => []},
                                     {:dip_ids => []},

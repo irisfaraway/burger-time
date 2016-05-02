@@ -12,6 +12,9 @@ class Order < ActiveRecord::Base
   # Size must be single or double
   validates :size, presence: true, inclusion: { in: %w(single double) }
 
+  # Comment must be 100 characters max
+  validates :comment, length: { maximum: 100 }
+
   # Price must be more than 0, or blank
   validates :order_price, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
 

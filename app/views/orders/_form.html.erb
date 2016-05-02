@@ -38,6 +38,10 @@
       <%= f.collection_check_boxes(:filling_ids, Filling.all, :id, :name) %>
     </div>
     <div class="field">
+      <%= f.label :comment, 'Additional comments' %><br>
+      <%= f.text_field :comment, :placeholder => 'e.g. no onions' %>
+    </div>
+    <div class="field">
       <%= f.label :side_ids, 'Sides' %>
       <%= f.collection_check_boxes(:side_ids, Side.all, :id, :name) %>
     </div>
