@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-# Seed burgers - commented out until burgers are workings
+# Seed burgers
 Dir[File.join(Rails.root, 'db', 'schwartz_products', 'burgers.yml')].each do |seed_file|
   config = YAML::load_file(seed_file)
   Burger.create!(config)
@@ -25,8 +25,8 @@ Dir[File.join(Rails.root, 'db', 'schwartz_products', 'sides.yml')].each do |seed
   Side.create!(config)
 end
 
-# Seed dips - commented out until dips are workings
-#Dir[File.join(Rails.root, 'db', 'schwartz_products', 'dips.yml')].each do |seed_file|
-#  config = YAML::load_file(seed_file)
-#  Dip.create!(config)
-#end
+# Seed dips
+Dir[File.join(Rails.root, 'db', 'schwartz_products', 'dips.yml')].each do |seed_file|
+  config = YAML::load_file(seed_file)
+  Dip.create!(config)
+end
