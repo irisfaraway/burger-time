@@ -42,6 +42,10 @@
       <%= f.collection_check_boxes(:side_ids, Side.all, :id, :name) %>
     </div>
     <div class="field">
+      <%= f.label :dip_ids, 'Dips' %>
+      <%= f.collection_check_boxes(:dip_ids, Dip.all, :id, :name) %>
+    </div>
+    <div class="field">
       <%= f.label :paid %><br>
       <%= f.check_box :paid %>
     </div>

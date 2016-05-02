@@ -1,7 +1,8 @@
 class Order < ActiveRecord::Base
   has_and_belongs_to_many :burgers
-  has_and_belongs_to_many :sides
+  has_and_belongs_to_many :dips
   has_and_belongs_to_many :fillings
+  has_and_belongs_to_many :sides
 
   before_validation :calculate_price
 

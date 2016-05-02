@@ -53,6 +53,19 @@
     </p>
 
     <p>
+      <strong>Dips:</strong>
+      <% unless @order.dips.empty? %>
+        <ul>
+          <% @order.dips.each do |dip| %>
+            <li><%= dip.name %> – £<%= number_with_precision(dip.price, :precision => 2) %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        No dips
+      <% end %>
+    </p>
+
+    <p>
       <strong>Order price:</strong>
       <% if @order.order_price.nil? %>
         -

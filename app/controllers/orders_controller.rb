@@ -74,6 +74,7 @@ class OrdersController < ApplicationController
                                     :size,
                                     {:filling_ids => []},
                                     {:side_ids => []},
+                                    {:dip_ids => []},
                                     :paid)
     end
 end
