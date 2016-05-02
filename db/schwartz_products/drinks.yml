@@ -1,0 +1,29 @@
+---
+- name: Thick Vanilla Milkshake - regular
+  price: 1.95
+- name: Thick Vanilla Milkshake - large
+  price: 2.35
+- name: Thick Banana Milkshake - regular
+  price: 1.95
+- name: Thick Banana Milkshake - large
+  price: 2.35
+- name: Thick Strawberry Milkshake - regular
+  price: 1.95
+- name: Thick Strawberry Milkshake - large
+  price: 2.35
+- name: Thick Chocolate Milkshake - regular
+  price: 1.95
+- name: Thick Chocolate Milkshake - large
+  price: 2.35
+- name: Coke
+  price: 0.95
+- name: Diet Coke
+  price: 0.95
+- name: Sprite
+  price: 0.95
+- name: Orange Tango
+  price: 0.95
+- name: Mineral Water
+  price: 0.95
+- name: Orange Juice
+  price: 0.95
