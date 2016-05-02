@@ -11,6 +11,19 @@
     </p>
 
     <p>
+      <strong>Burger:</strong>
+      <% unless @order.burgers.empty? %>
+        <ul>
+          <% @order.burgers.each do |burger| %>
+            <li><%= burger.name %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        No burgers
+      <% end %>
+    </p>
+
+    <p>
       <strong>Extra fillings:</strong>
       <% unless @order.fillings.empty? %>
         <ul>

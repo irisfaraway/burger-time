@@ -10,7 +10,7 @@
         <tr>
           <th>Eater</th>
           <th>Order date</th>
-          <th>Extra fillings</th>
+          <th>Burger</th>
           <th>Sides</th>
           <th>Order price</th>
           <th>Paid</th>
@@ -24,6 +24,15 @@
             <td><%= order.eater %></td>
             <td><%= order.order_date.to_formatted_s(:ddmy) %></td>
             <td>
+              <% unless order.burgers.empty? %>
+                <ul>
+                  <% order.burgers.each do |burger| %>
+                    <li><%= burger.name %></li>
+                  <% end %>
+                </ul>
+              <% else %>
+                No burgers
+              <% end %>
               <% unless order.fillings.empty? %>
                 <ul>
                   <% order.fillings.each do |filling| %>

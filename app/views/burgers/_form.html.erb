@@ -1,0 +1,43 @@
+<%= form_for(@burger) do |f| %>
+  <% if @burger.errors.any? %>
+    <div class="row">
+      <div id="error_explanation" class="small-12 medium-10 large-8">
+        <h2><%= pluralize(@burger.errors.count, "error") %> prohibited this burger from being saved:</h2>
+
+        <ul>
+        <% @burger.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+<div class="row">
+  <div class="small-12 medium-10 large-8">
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_field :description %>
+    </div>
+    <div class="field">
+      <%= f.label :spicy %><br>
+      <%= f.check_box :spicy %>
+    </div>
+    <div class="field">
+      <%= f.label :price_single %><br>
+      <%= f.text_field :price_single, :value => (number_with_precision(f.object.price_single, :precision => 2)) %>
+    </div>
+    <div class="field">
+      <%= f.label :price_double %><br>
+      <%= f.text_field :price_double, :value => (number_with_precision(f.object.price_double, :precision => 2)) %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
+</div>
+<% end %>
