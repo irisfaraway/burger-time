@@ -70,6 +70,21 @@
             <td><%= link_to 'Delete', order, method: :delete, class: 'button radius tiny alert', data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
+          <tr>
+            <td colspan="3"><strong>TOTAL</strong></td>
+            <td><strong>£<%= number_with_precision(@total_cost, :precision => 2) %></strong></td>
+            <td colspan="4"></td>
+          </tr>
+          <tr>
+            <td colspan="3">Paid</td>
+            <td>£<%= number_with_precision(@total_paid, :precision => 2) %></td>
+            <td colspan="4"></td>
+          </tr>
+          <tr>
+            <td colspan="3">Unpaid</td>
+            <td>£<%= number_with_precision(@total_unpaid, :precision => 2) %></td>
+            <td colspan="4"></td>
+          </tr>
       </tbody>
     </table>
     </div>

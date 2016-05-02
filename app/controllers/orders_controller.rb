@@ -4,7 +4,13 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
+    # sort orders by the name of the eater
     @orders = Order.all.order('eater ASC')
+
+    # get total cost of orders, plus how much is paid and unpaid
+    @total_cost = @orders.sum(:order_price)
+    @total_paid = @orders.where(paid: true).sum(:order_price)
+    @total_unpaid = @orders.where(paid: false).sum(:order_price)
   end
 
   # GET /orders/1
