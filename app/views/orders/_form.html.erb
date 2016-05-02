@@ -1,7 +1,7 @@
 <%= form_for(@order) do |f| %>
   <% if @order.errors.any? %>
     <div class="row">
-      <div id="error_explanation" class="small-12 medium-10 large-8">
+      <div id="error_explanation" class="small-12">
         <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
         <ul>
@@ -14,48 +14,79 @@
   <% end %>
 
 <div class="row">
-  <div class="small-12 medium-10 large-8">
-    <div class="field">
-      <%= f.label :eater %><br>
-      <%= f.text_field :eater %>
-    </div>
-    <div class="field">
-      <%= f.label :order_date %><br>
-      <%= f.date_select :order_date %>
-    </div>
-    <div class="field">
-      <%= f.label :burger_ids, 'Burgers' %>
-      <%= f.collection_select(:burger_ids, Burger.all, :id, :name, {include_blank: 'Pick a burger'}) %>
-    </div>
-    <div class="field">
-        <%= f.radio_button :size, 'single', :checked => true %> 
-        <%= f.label :size, 'Single', :value => 'single' %>
-        <%= f.radio_button :size, 'double' %> 
-        <%= f.label :size, 'Double', :value => 'double' %>
-    </div>
-    <div class="field">
-      <%= f.label :filling_ids, 'Extra fillings' %>
-      <%= f.collection_check_boxes(:filling_ids, Filling.all, :id, :name) %>
-    </div>
-    <div class="field">
-      <%= f.label :comment, 'Additional comments' %><br>
-      <%= f.text_field :comment, :placeholder => 'e.g. no onions' %>
-    </div>
-    <div class="field">
-      <%= f.label :side_ids, 'Sides' %>
-      <%= f.collection_check_boxes(:side_ids, Side.all, :id, :name) %>
-    </div>
-    <div class="field">
-      <%= f.label :dip_ids, 'Dips' %>
-      <%= f.collection_check_boxes(:dip_ids, Dip.all, :id, :name) %>
-    </div>
-    <div class="field">
-      <%= f.label :paid %><br>
-      <%= f.check_box :paid %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
+  <div class="small-12">
+    <fieldset>
+      <legend>Who and when</legend>
+      <div class="field">
+        <%= f.label :eater %><br>
+        <%= f.text_field :eater %>
+      </div>
+      <div class="field">
+        <%= f.label :order_date %><br>
+        <%= f.date_select :order_date %>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Your burger</legend>
+      <div class="row">
+        <div class="small-12 large-6 column">
+          <div class="field">
+            <%= f.label :burger_ids, 'Burgers' %>
+            <%= f.collection_select(:burger_ids, Burger.all, :id, :name, {include_blank: 'Pick a burger'}) %>
+          </div>
+          <div class="field">
+              <%= f.radio_button :size, 'single', :checked => true %> 
+              <%= f.label :size, 'Single', :value => 'single' %>
+              <%= f.radio_button :size, 'double' %> 
+              <%= f.label :size, 'Double', :value => 'double' %>
+          </div>
+        </div>
+        <div class="small-12 large-6 column">
+          <div class="panel">
+            <div class="field">
+              <%= f.label :filling_ids, 'Extra fillings' %>
+              <%= f.collection_check_boxes(:filling_ids, Filling.all, :id, :name) %>
+            </div>
+            <div class="field">
+              <%= f.label :comment, 'Additional comments' %><br>
+              <%= f.text_field :comment, :placeholder => 'e.g. no onions' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Extras</legend>
+      <div class="row">
+        <div class="small-12 large-6 column">
+          <div class="field">
+            <%= f.label :side_ids, 'Sides' %>
+            <%= f.collection_check_boxes(:side_ids, Side.all, :id, :name) %>
+          </div>
+        </div>
+        <div class="small-12 large-6 column">
+          <div class="field">
+            <%= f.label :dip_ids, 'Dips' %>
+            <%= f.collection_check_boxes(:dip_ids, Dip.all, :id, :name) %>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Did you pay yet?</legend>
+      <div class="field">
+        <%= f.check_box :paid %>
+        <%= f.label :paid, 'Yes, I paid' %>
+      </div>
+    </fieldset>
   </div>
+</div>
+<div class="row actions">
+    <div class="small-12 medium-6 column">
+      <%= submit_tag "Save", class: 'button radius success expand' %>
+    </div>
+    <div class="small-12 medium-6 column">
+      <%= link_to 'Back', orders_path, class: 'button radius alert expand' %>
+    </div>
 </div>
 <% end %>
