@@ -8,10 +8,10 @@
 
 
 # Seed burgers - commented out until burgers are workings
-#Dir[File.join(Rails.root, 'db', 'schwartz_products', 'burgers.yml')].each do |seed_file|
-#  config = YAML::load_file(seed_file)
-#  Burger.create!(config)
-#end
+Dir[File.join(Rails.root, 'db', 'schwartz_products', 'burgers.yml')].each do |seed_file|
+  config = YAML::load_file(seed_file)
+  Burger.create!(config)
+end
 
 # Seed extra fillings
 Dir[File.join(Rails.root, 'db', 'schwartz_products', 'fillings.yml')].each do |seed_file|
