@@ -1,88 +1,74 @@
 <div class="row">
-  <div class="small-12 medium-10 large-8">
-    <p>
-      <strong>Eater:</strong>
-      <%= @order.eater %>
-    </p>
+  <div class="small-12">
+    <h1><%= @order.eater %>'s order</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12">
 
-    <p>
-      <strong>Order date:</strong>
-      <%= @order.order_date.to_formatted_s(:ddmy) %>
-    </p>
+    <p>This order is for <%= @order.order_date.to_formatted_s(:ddmy) %>.</p>
 
-    <p>
-      <strong>Burger:</strong>
-      <% unless @order.burgers.empty? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
         <% @order.burgers.each do |burger| %>
-          <%= burger.name %> – <%= @order.size %> – 
-          <% if @order.size == 'single' %>
-            £<%= number_with_precision(burger.price_single, :precision => 2) %>
-          <% elsif @order.size == 'double' %>
-            £<%= number_with_precision(burger.price_double, :precision => 2) %>
-          <% end %>
+          <tr>
+            <td>
+              <%= @order.size.capitalize %> <%= burger.name %>
+              <% unless @order.comment.blank? %>
+              (<%= @order.comment %>)
+              <% end %>
+            </td>
+            <td>
+              <% if @order.size == 'single' %>
+                £<%= number_with_precision(burger.price_single, :precision => 2) %>
+              <% elsif @order.size == 'double' %>
+                £<%= number_with_precision(burger.price_double, :precision => 2) %>
+              <% end %>
+            </td>
+          </tr>
         <% end %>
-      <% else %>
-        No burgers
-      <% end %>
-    </p>
-
-    <p>
-      <strong>Extra fillings:</strong>
-      <% unless @order.fillings.empty? %>
-        <ul>
-          <% @order.fillings.each do |filling| %>
-            <li><%= filling.name %> – £<%= number_with_precision(filling.price, :precision => 2) %></li>
-          <% end %>
-        </ul>
-      <% else %>
-        No extra fillings
-      <% end %>
-    </p>
-
-    <p>
-      <strong>Additional comment:</strong>
-      <%= @order.comment %>
-    </p>
-
-    <p>
-      <strong>Sides:</strong>
-      <% unless @order.sides.empty? %>
-        <ul>
-          <% @order.sides.each do |side| %>
-            <li><%= side.name %> – £<%= number_with_precision(side.price, :precision => 2) %></li>
-          <% end %>
-        </ul>
-      <% else %>
-        No sides
-      <% end %>
-    </p>
-
-    <p>
-      <strong>Dips:</strong>
-      <% unless @order.dips.empty? %>
-        <ul>
-          <% @order.dips.each do |dip| %>
-            <li><%= dip.name %> – £<%= number_with_precision(dip.price, :precision => 2) %></li>
-          <% end %>
-        </ul>
-      <% else %>
-        No dips
-      <% end %>
-    </p>
-
-    <p>
-      <strong>Order price:</strong>
-      <% if @order.order_price.nil? %>
-        -
-      <% else %>
-        £<%= number_with_precision(@order.order_price, :precision => 2) %>
-      <% end %>
-    </p>
-
-    <p>
-      <strong>Paid:</strong>
-      <%= @order.paid %>
-    </p>
+        <% @order.fillings.each do |filling| %>
+          <tr>
+            <td>+ <%= filling.name %></td>
+            <td>£<%= number_with_precision(filling.price, :precision => 2) %></td>
+          </tr>
+        <% end %>
+        <% @order.sides.each do |side| %>
+          <tr>
+            <td><%= side.name %></td>
+            <td>£<%= number_with_precision(side.price, :precision => 2) %></td>
+          </tr>
+        <% end %>
+        <% @order.dips.each do |dip| %>
+          <tr>
+            <td><%= dip.name %> Dip</td>
+            <td>£<%= number_with_precision(dip.price, :precision => 2) %></td>
+          </tr>
+        <% end %>
+        <tr>
+          <td><strong>Total</strong>
+            <% if @order.paid? %>
+              (all paid)
+            <% else %>
+              (unpaid)
+            <% end %>
+          </td>
+          <td>
+            <% if @order.order_price.nil? %>
+              -
+            <% else %>
+              <strong>£<%= number_with_precision(@order.order_price, :precision => 2) %></strong>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 <div class="row">
