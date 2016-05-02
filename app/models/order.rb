@@ -36,6 +36,10 @@ class Order < ActiveRecord::Base
       self.sides.each do |side|
         total_price += side.price
       end
+      # Add the cost of each dip
+      self.dips.each do |dip|
+        total_price += dip.price
+      end
       self.update_attribute(:order_price, total_price)
     end
 
