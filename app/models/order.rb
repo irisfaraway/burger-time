@@ -8,6 +8,9 @@ class Order < ActiveRecord::Base
   # Requires an eater and a date
   validates :eater, :order_date, presence: true
 
+  # Size must be single or double
+  validates :size, presence: true, inclusion: { in: %w(single double) }
+
   # Price must be more than 0, or blank
   validates :order_price, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
 
