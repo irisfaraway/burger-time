@@ -14,7 +14,12 @@
       <strong>Burger:</strong>
       <% unless @order.burgers.empty? %>
         <% @order.burgers.each do |burger| %>
-          <%= burger.name %> – <%= @order.size %>
+          <%= burger.name %> – <%= @order.size %> – 
+          <% if @order.size == 'single' %>
+            £<%= number_with_precision(burger.price_single, :precision => 2) %>
+          <% elsif @order.size == 'double' %>
+            £<%= number_with_precision(burger.price_double, :precision => 2) %>
+          <% end %>
         <% end %>
       <% else %>
         No burgers

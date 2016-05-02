@@ -19,9 +19,19 @@ class Order < ActiveRecord::Base
     # Add prices of the order's individual components for the total
     def calculate_price
       total_price = 0
+      # Get burger cost based on size
+      self.burgers.each do |burger|
+        if size == 'single'
+          total_price += burger.price_single
+        elsif size == 'double'
+          total_price += burger.price_double
+        end            
+      end
+      # Add the cost of each extra filling
       self.fillings.each do |filling|
         total_price += filling.price
       end
+      # Add the cost of each side
       self.sides.each do |side|
         total_price += side.price
       end
