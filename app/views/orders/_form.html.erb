@@ -28,6 +28,12 @@
       <%= f.collection_select(:burger_ids, Burger.all, :id, :name, {include_blank: 'Pick a burger'}) %>
     </div>
     <div class="field">
+        <%= f.radio_button :size, 'single', :checked => true %> 
+        <%= f.label :size, 'Single', :value => 'single' %>
+        <%= f.radio_button :size, 'double' %> 
+        <%= f.label :size, 'Double', :value => 'double' %>
+    </div>
+    <div class="field">
       <%= f.label :filling_ids, 'Extra fillings' %>
       <%= f.collection_check_boxes(:filling_ids, Filling.all, :id, :name) %>
     </div>

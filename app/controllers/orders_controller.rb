@@ -71,6 +71,7 @@ class OrdersController < ApplicationController
       params.require(:order).permit(:eater,
                                     :order_date,
                                     :burger_ids,
+                                    :size,
                                     {:filling_ids => []},
                                     {:side_ids => []},
                                     :paid)

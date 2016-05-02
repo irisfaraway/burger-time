@@ -13,11 +13,9 @@
     <p>
       <strong>Burger:</strong>
       <% unless @order.burgers.empty? %>
-        <ul>
-          <% @order.burgers.each do |burger| %>
-            <li><%= burger.name %></li>
-          <% end %>
-        </ul>
+        <% @order.burgers.each do |burger| %>
+          <%= burger.name %> – <%= @order.size %>
+        <% end %>
       <% else %>
         No burgers
       <% end %>
