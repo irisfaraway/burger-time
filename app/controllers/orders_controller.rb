@@ -82,6 +82,7 @@ class OrdersController < ApplicationController
                                     {:filling_ids => []},
                                     {:side_ids => []},
                                     {:dip_ids => []},
+                                    {:drink_ids => []},
                                     :paid)
     end
 end

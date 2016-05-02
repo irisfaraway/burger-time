@@ -63,11 +63,15 @@
             <%= f.label :side_ids, 'Sides' %>
             <%= f.collection_check_boxes(:side_ids, Side.all, :id, :name, {:item_wrapper_tag => 'div', :item_wrapper_class => 'checkbox_container'}) %>
           </div>
-        </div>
-        <div class="small-12 large-6 column">
           <div class="field">
             <%= f.label :dip_ids, 'Dips' %>
             <%= f.collection_check_boxes(:dip_ids, Dip.all, :id, :name, {:item_wrapper_tag => 'div', :item_wrapper_class => 'checkbox_container'}) %>
+          </div>
+        </div>
+        <div class="small-12 large-6 column">
+          <div class="field">
+            <%= f.label :drink_ids, 'Drinks' %>
+            <%= f.collection_check_boxes(:drink_ids, Drink.all, :id, :name, {:item_wrapper_tag => 'div', :item_wrapper_class => 'checkbox_container'}) %>
           </div>
         </div>
       </div>

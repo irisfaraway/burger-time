@@ -41,13 +41,16 @@
               <% end %>
             </td>
             <td>
-              <% unless order.sides.empty? && order.dips.empty? %>
+              <% unless order.sides.empty? && order.dips.empty? && order.drinks.empty? %>
                 <ul>
                   <% order.sides.each do |side| %>
                     <li><%= side.name %></li>
                   <% end %>
                   <% order.dips.each do |dip| %>
                     <li><%= dip.name %> Dip</li>
+                  <% end %>
+                  <% order.drinks.each do |drink| %>
+                    <li><%= drink.name %></li>
                   <% end %>
                 </ul>
               <% end %>
