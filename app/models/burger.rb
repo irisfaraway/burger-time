@@ -1,10 +1,7 @@
 class Burger < ActiveRecord::Base
-  has_and_belongs_to_many :orders
+  include Nameable
 
-  # Name is required, must be unique and under 30 characters
-  validates :name, presence: true,
-                   uniqueness: true,
-                   length: { maximum: 40 }
+  has_and_belongs_to_many :orders
 
   # Description must be under 100 characters
   validates :description, length: { maximum: 120 }
