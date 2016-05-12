@@ -18,11 +18,11 @@
     <fieldset>
       <legend>Who and when</legend>
       <div class="field">
-        <%= f.label :eater %><br>
+        <%= f.label :eater %>
         <%= f.text_field :eater %>
       </div>
       <div class="field">
-        <%= f.label :order_date %><br>
+        <%= f.label :order_date %>
         <%= f.date_select :order_date, { order: [:day, :month, :year], with_css_classes: true } %>
       </div>
     </fieldset>
@@ -48,7 +48,7 @@
               <%= f.collection_check_boxes(:filling_ids, Filling.all, :id, :name, {:item_wrapper_tag => 'div', :item_wrapper_class => 'checkbox_container'}) %>
             </div>
             <div class="field">
-              <%= f.label :comment, 'Additional comments' %><br>
+              <%= f.label :comment, 'Additional comments' %>
               <%= f.text_field :comment, :placeholder => 'e.g. no onions' %>
             </div>
           </div>
@@ -78,8 +78,9 @@
     </fieldset>
     <fieldset>
       <legend>Did you pay yet?</legend>
+      <p>Enter the amount you've paid into the kitty – in full, in part, or if you're waiting for change.</p>
       <div class="field">
-        <%= f.label :amount_paid %><br>
+        <%= f.label :amount_paid %>
         <%= f.text_field :amount_paid, :value => (number_with_precision(f.object.amount_paid, :precision => 2)) %>
       </div>
     </fieldset>

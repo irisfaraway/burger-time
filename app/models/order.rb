@@ -5,7 +5,7 @@ class Order < ActiveRecord::Base
   has_and_belongs_to_many :sides
   has_and_belongs_to_many :drinks
 
-  before_validation :calculate_price
+  before_validation :calculate_price, :calculate_payment_remainder
 
   # Requires an eater and a date
   validates :eater, :order_date, presence: true
@@ -16,8 +16,13 @@ class Order < ActiveRecord::Base
   # Comment must be 100 characters max
   validates :comment, length: { maximum: 100 }
 
-  # Price must be more than 0, or blank
-  validates :order_price, numericality: { greater_than_or_equal_to: 0, allow_nil: true }
+  # Prices must be more than 0, or blank
+  validates :order_price,
+            :amount_paid,
+            numericality: {
+                            greater_than_or_equal_to: 0,
+                            allow_nil: true 
+                          }
 
   private
 
@@ -49,6 +54,15 @@ class Order < ActiveRecord::Base
         total_price += drink.price
       end
       self.update_attribute(:order_price, total_price)
+    end
+
+    # Calculate unpaid amount
+    def calculate_payment_remainder
+      if self.amount_paid.nil?
+        self.update_attribute(:amount_paid, 0)
+      end
+      unpaid = self.order_price - self.amount_paid
+      self.update_attribute(:payment_remainder, unpaid)
     end
 
 end

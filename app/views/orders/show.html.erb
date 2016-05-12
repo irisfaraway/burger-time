@@ -58,14 +58,32 @@
           </tr>
         <% end %>
         <tr>
-          <td><strong>Total</strong>
-            PAYMENT STUFF GOES HERE
-          </td>
+          <td><strong>Total</strong></td>
           <td>
             <% if @order.order_price.nil? %>
               -
             <% else %>
               <strong>£<%= number_with_precision(@order.order_price, :precision => 2) %></strong>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Paid</td>
+          <td>
+            <% if @order.amount_paid.nil? %>
+              -
+            <% else %>
+              £<%= number_with_precision(@order.amount_paid, :precision => 2) %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Remaining</td>
+          <td>
+            <% if @order.payment_remainder.nil? %>
+              -
+            <% else %>
+              £<%= number_with_precision(@order.payment_remainder, :precision => 2) %>
             <% end %>
           </td>
         </tr>
