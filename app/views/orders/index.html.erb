@@ -62,10 +62,13 @@
               <% end %>
             </td>
             <td>
-              <% if order.paid? %>
-                Yes
-                <% else %>
-                No
+              £<%= number_with_precision(order.amount_paid, :precision => 2) %>
+              <% if order.payment_remainder > 0 %>
+                <br><span class="warning label">Needs to pay £<%= number_with_precision(order.payment_remainder, :precision => 2) %></span>
+              <% elsif order.payment_remainder < 0 %>
+                <br><span class="success label">Overpaid by £<%= number_with_precision(order.payment_remainder.abs, :precision => 2) %></span>
+              <% else %>
+                  👍
               <% end %>
             </td>
             <td><%= link_to 'Details', order, class: 'button radius tiny info' %></td>
@@ -81,11 +84,6 @@
           <tr>
             <td colspan="3">Paid</td>
             <td>£<%= number_with_precision(@total_paid, :precision => 2) %></td>
-            <td colspan="4"></td>
-          </tr>
-          <tr>
-            <td colspan="3">Unpaid</td>
-            <td>£<%= number_with_precision(@total_unpaid, :precision => 2) %></td>
             <td colspan="4"></td>
           </tr>
       </tbody>

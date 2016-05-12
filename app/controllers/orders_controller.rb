@@ -9,8 +9,8 @@ class OrdersController < ApplicationController
 
     # get total cost of orders, plus how much is paid and unpaid
     @total_cost = @orders.sum(:order_price)
-    @total_paid = @orders.where(paid: true).sum(:order_price)
-    @total_unpaid = @orders.where(paid: false).sum(:order_price)
+    @total_paid = @orders.sum(:amount_paid)
+    @total_unpaid = @orders.sum(:payment_remainder)
   end
 
   # GET /orders/1
