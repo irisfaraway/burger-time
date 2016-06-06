@@ -1,6 +1,8 @@
 # Order object
 class Order < ActiveRecord::Base
+  # Should only be one burger per order but can't do has one, belongs to many - need to find better solution than this
   has_and_belongs_to_many :burgers
+  # I am more okay with these being HABTM but still room for refactoring
   has_and_belongs_to_many :dips
   has_and_belongs_to_many :fillings
   has_and_belongs_to_many :sides
@@ -40,6 +42,7 @@ class Order < ActiveRecord::Base
   # Add prices of the order's individual components for the total
   def calculate_price
     total_price = 0
+    # Add price of the burger
     choose_burger_price
     total_price += @burger_price
     # Add prices of all the non-burger items - would like to include burgers but they have multiple price attributes
@@ -47,7 +50,7 @@ class Order < ActiveRecord::Base
     order_items.each do |item|
       total_price += item.price
     end
-    # Update the total price
+    # Update the total price of the order
     update_attribute(:order_price, total_price)
   end
 
