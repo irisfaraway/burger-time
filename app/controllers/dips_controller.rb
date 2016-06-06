@@ -62,13 +62,14 @@ class DipsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_dip
-      @dip = Dip.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def dip_params
-      params.require(:dip).permit(:name, :spicy, :price)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_dip
+    @dip = Dip.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def dip_params
+    params.require(:dip).permit(:name, :spicy, :price)
+  end
 end

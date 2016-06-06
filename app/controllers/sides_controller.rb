@@ -62,13 +62,14 @@ class SidesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_side
-      @side = Side.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def side_params
-      params.require(:side).permit(:name, :description, :spicy, :price)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_side
+    @side = Side.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def side_params
+    params.require(:side).permit(:name, :description, :spicy, :price)
+  end
 end

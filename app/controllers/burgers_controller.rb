@@ -62,13 +62,14 @@ class BurgersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_burger
-      @burger = Burger.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def burger_params
-      params.require(:burger).permit(:name, :description, :spicy, :price_single, :price_double)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_burger
+    @burger = Burger.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def burger_params
+    params.require(:burger).permit(:name, :description, :spicy, :price_single, :price_double)
+  end
 end

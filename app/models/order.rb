@@ -1,3 +1,4 @@
+# Order object
 class Order < ActiveRecord::Base
   has_and_belongs_to_many :burgers
   has_and_belongs_to_many :dips
@@ -19,50 +20,45 @@ class Order < ActiveRecord::Base
   # Prices must be more than 0, or blank
   validates :order_price,
             :amount_paid,
-            numericality: {
-                            greater_than_or_equal_to: 0,
-                            allow_nil: true 
-                          }
+            numericality: { greater_than_or_equal_to: 0,
+                            allow_nil: true }
 
   private
 
-    # Add prices of the order's individual components for the total
-    def calculate_price
-      total_price = 0
-      # Get burger cost based on size
-      self.burgers.each do |burger|
-        if size == 'single'
-          total_price += burger.price_single
-        elsif size == 'double'
-          total_price += burger.price_double
-        end            
+  # Add prices of the order's individual components for the total
+  def calculate_price
+    total_price = 0
+    # Get burger cost based on size
+    burgers.each do |burger|
+      if size == 'single'
+        total_price += burger.price_single
+      elsif size == 'double'
+        total_price += burger.price_double
       end
-      # Add the cost of each extra filling
-      self.fillings.each do |filling|
-        total_price += filling.price
-      end
-      # Add the cost of each side
-      self.sides.each do |side|
-        total_price += side.price
-      end
-      # Add the cost of each dip
-      self.dips.each do |dip|
-        total_price += dip.price
-      end
-      # Add the cost of each drink
-      self.drinks.each do |drink|
-        total_price += drink.price
-      end
-      self.update_attribute(:order_price, total_price)
     end
-
-    # Calculate unpaid amount
-    def calculate_payment_remainder
-      if self.amount_paid.nil?
-        self.update_attribute(:amount_paid, 0)
-      end
-      unpaid = self.order_price - self.amount_paid
-      self.update_attribute(:payment_remainder, unpaid)
+    # Add the cost of each extra filling
+    fillings.each do |filling|
+      total_price += filling.price
     end
+    # Add the cost of each side
+    sides.each do |side|
+      total_price += side.price
+    end
+    # Add the cost of each dip
+    dips.each do |dip|
+      total_price += dip.price
+    end
+    # Add the cost of each drink
+    drinks.each do |drink|
+      total_price += drink.price
+    end
+    update_attribute(:order_price, total_price)
+  end
 
+  # Calculate unpaid amount
+  def calculate_payment_remainder
+    update_attribute(:amount_paid, 0) if amount_paid.nil?
+    unpaid = order_price - amount_paid
+    update_attribute(:payment_remainder, unpaid)
+  end
 end

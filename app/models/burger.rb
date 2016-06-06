@@ -1,3 +1,4 @@
+# Burger object for orders
 class Burger < ActiveRecord::Base
   include Nameable
   include Describable
@@ -6,6 +7,6 @@ class Burger < ActiveRecord::Base
 
   # Prices are required and must be more than 0
   validates :price_single, :price_double,
-                    presence: true,
-                    numericality: { greater_than: 0 }
+            presence: true,
+            numericality: { greater_than: 0 }
 end
