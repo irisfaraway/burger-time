@@ -36,22 +36,12 @@ class Order < ActiveRecord::Base
         total_price += burger.price_double
       end
     end
-    # Add the cost of each extra filling
-    fillings.each do |filling|
-      total_price += filling.price
+    # Add prices of all the non-burger items - would like to include burgers but they have multiple price attributes
+    order_items = fillings + sides + dips + drinks
+    order_items.each do |item|
+      total_price += item.price
     end
-    # Add the cost of each side
-    sides.each do |side|
-      total_price += side.price
-    end
-    # Add the cost of each dip
-    dips.each do |dip|
-      total_price += dip.price
-    end
-    # Add the cost of each drink
-    drinks.each do |drink|
-      total_price += drink.price
-    end
+    # Update the total price
     update_attribute(:order_price, total_price)
   end
 
