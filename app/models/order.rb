@@ -25,17 +25,23 @@ class Order < ActiveRecord::Base
 
   private
 
+  # Get burger cost based on size
+  def choose_burger_price
+    @burger_price = 0
+    burgers.each do |burger|
+      if size == 'single'
+        @burger_price += burger.price_single
+      elsif size == 'double'
+        @burger_price += burger.price_double
+      end
+    end
+  end
+
   # Add prices of the order's individual components for the total
   def calculate_price
     total_price = 0
-    # Get burger cost based on size
-    burgers.each do |burger|
-      if size == 'single'
-        total_price += burger.price_single
-      elsif size == 'double'
-        total_price += burger.price_double
-      end
-    end
+    choose_burger_price
+    total_price += @burger_price
     # Add prices of all the non-burger items - would like to include burgers but they have multiple price attributes
     order_items = fillings + sides + dips + drinks
     order_items.each do |item|
